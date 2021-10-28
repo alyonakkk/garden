@@ -122,14 +122,13 @@ function Navigation() {
       }
 
       return (
-        <SwiperSlide className={classNavItem}>
+        <SwiperSlide className={classNavItem} key={nav.id}>
           <NavigationItem
             title={nav.title}
             svg={nav.svg}
             path={nav.path}
             className="nav__item"
             onClick={handleNavItem}
-            key={nav.id}
           />
         </SwiperSlide>
       );

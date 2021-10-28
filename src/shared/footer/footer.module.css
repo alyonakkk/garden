@@ -12,6 +12,11 @@
   border-top-right-radius: 15px;
 }
 
+.footer__flex {
+  display: flex;
+  gap: 36px;
+}
+
 .list {
   display: flex;
   justify-content: space-between;

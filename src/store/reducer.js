@@ -7,6 +7,7 @@ import {
   setShopItem,
   setOrder,
   setDetailCard,
+  setDetailActiveNav,
 } from "./actions";
 
 const initState = {
@@ -23,6 +24,7 @@ const initState = {
   // },
   order: [],
   detailCard: [],
+  detailActiveNav: "information",
 };
 
 export default createReducer(initState, {
@@ -46,5 +48,8 @@ export default createReducer(initState, {
   },
   [setDetailCard]: (state, action) => {
     state.detailCard = action.payload;
+  },
+  [setDetailActiveNav]: (state, action) => {
+    state.detailActiveNav = action.payload;
   },
 });

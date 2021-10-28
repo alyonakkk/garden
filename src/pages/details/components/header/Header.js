@@ -1,10 +1,11 @@
 import style from "../../../../shared/header/header.module.css";
+import { Link } from "react-router-dom";
 
-function Header({ title, size }) {
+function Header({ title, size, activeStore }) {
   return (
     <div className={style.header + " " + style.header__detail}>
       <div className={style.wrapper}>
-        <a className={style.back} href="#">
+        <Link to={`/catalog/${activeStore}`} className={style.back}>
           <svg
             width="12"
             height="12"
@@ -17,7 +18,7 @@ function Header({ title, size }) {
               fill="currentColor"
             />
           </svg>
-        </a>
+        </Link>
         <p className={style.title + " " + style.title__detail}>{title}</p>
       </div>
       <div className={style.wrapper}>

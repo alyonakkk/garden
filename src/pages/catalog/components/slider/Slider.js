@@ -34,12 +34,12 @@ function Slider({
       }
 
       return (
-        <SwiperSlide>
+        <SwiperSlide key={item.slug}>
           <Link
             to={`/catalog/${activeStore}/${item.slug}`}
             onClick={handleItem}
           >
-            <Slide title={item.name} price={item.price} />
+            <Slide title={item.name} price={item.price} slug={item.slug} />
           </Link>
         </SwiperSlide>
       );
@@ -60,7 +60,7 @@ function Slider({
           </Swiper>
         </>
       ) : (
-        "Сначала необходимо выбрать кофейню ^-^"
+        <p>Сначала необходимо выбрать кофейню ^-^</p>
       )}
     </div>
   );

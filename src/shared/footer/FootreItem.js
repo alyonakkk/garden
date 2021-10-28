@@ -12,6 +12,12 @@ function FooterItem({
   counter,
   ...props
 }) {
+  function sumPrice() {
+    return order.reduce((acc, el) => {
+      return acc + Number(el.price);
+    }, 0);
+  }
+
   return (
     <Link to={path}>
       <li {...props}>
@@ -30,12 +36,12 @@ function FooterItem({
         )}
         {counter !== undefined &&
         activeStore.length !== 0 &&
-        order.lenght !== undefined ? (
+        order !== undefined ? (
           <div className={style.price}>
             <div className={style.counter__wrapper}>
-              <p className={style.counter}>2</p>
+              <p className={style.counter}>{order.length}</p>
             </div>
-            <div>99999 P</div>
+            <div>{sumPrice()}</div>
           </div>
         ) : (
           ""
