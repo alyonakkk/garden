@@ -1,0 +1,141 @@
+/* nav */
+
+.catalog__nav {
+  margin-top: 78px;
+
+  border-bottom: 1px solid #959595;
+
+  overflow: hidden;
+}
+
+.nav__list {
+  display: flex;
+  height: auto;
+
+  list-style: none;
+}
+
+.nav__item-wrapper {
+  padding: 8px 0;
+
+  display: flex;
+  gap: 6px;
+
+  color: #bebebe;
+
+  cursor: pointer;
+}
+
+.nav__item {
+  display: flex;
+  gap: 6px;
+  width: max-content;
+}
+
+.nav__item-active {
+  color: #000000;
+
+  border-bottom: 3px solid #ffb92a;
+}
+
+/* slider */
+
+.mySwiper {
+  margin-top: 12px;
+
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  position: relative;
+
+  display: flex;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-next {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  z-index: 10;
+
+  width: 24px;
+  height: 24px;
+
+  background: url(./components/img/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}
+
+.slider__title {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.slide {
+  width: max-content;
+
+  color: #000000;
+  background-color: #383838;
+  border-radius: 15px;
+  filter: drop-shadow(2px 2px 2px #00000040);
+
+  cursor: pointer;
+}
+
+.slide__content {
+  padding: 12px 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background-color: #f3f4f0;
+  border: 2px solid #383838;
+  border-radius: 15px;
+}
+
+.slide__icon {
+  width: 24px;
+  height: 24px;
+
+  background: url(../catalog/components/img/coffee-latte.png);
+}
+
+.slide__title {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.slider__wrapper {
+  padding: 4px 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 14px;
+}
+
+.slide__count {
+  color: #ffb92a;
+}
+
+.slide__price {
+  color: #ffffff;
+}
+
+.slider-container {
+  padding: 0 20px;
+  margin-top: 14px;
+
+  position: relative;
+}

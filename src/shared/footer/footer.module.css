@@ -1,0 +1,112 @@
+.footer {
+  padding: 12px 58px;
+
+  position: fixed;
+  bottom: 0;
+
+  /* max-width: 376px; */
+  width: 100%;
+
+  background-color: #242424;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  list-style: none;
+}
+
+.item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #959595;
+
+  cursor: pointer;
+}
+
+.item__active {
+  color: white;
+}
+
+.item:hover {
+  color: white;
+}
+
+.checked {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  width: 24px;
+  height: 20px;
+
+  background: url(../../shared/footer/img/radio--active.png);
+}
+
+.price {
+  padding: 2px 6px 2px 0;
+
+  position: absolute;
+  top: -10px;
+  right: -50px;
+
+  display: flex;
+  align-items: center;
+  width: max-content;
+
+  color: #f3f4f0;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 16px;
+
+  background-color: #383838;
+  border-radius: 10px;
+}
+
+.price__detail {
+  padding-right: 14px;
+
+  position: relative;
+  top: 0;
+  right: 0;
+
+  gap: 20px;
+}
+
+.counter__wrapper {
+  margin-right: 10px;
+  padding: 2px 6px;
+
+  color: #ffc633;
+
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.counter {
+  width: 8px;
+  height: 16px;
+}
+
+.button {
+  padding: 14px 42px;
+
+  color: #14ad99;
+  font-size: 13px;
+  font-weight: 800;
+
+  background-color: #f3f4f0;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
