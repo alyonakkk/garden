@@ -5,12 +5,14 @@ import {
   Redirect,
 } from "react-router-dom";
 import Store from "./pages/storeList/Store";
-import Payment from "./pages/payment/Payment";
 import Catalog from "./pages/catalog/Catalog";
-import Slider from "./pages/catalog/components/slider/Slider";
 import Details from "./pages/details/Details";
+import isNull from "./helpers/isNull";
+import ModalWindow from "./shared/modal/ModalWindow";
+import { connect } from "react-redux";
+import { TransitionGroup } from "react-transition-group";
 
-function App() {
+function App({ response, activeModal }) {
   return (
     <Router>
       <div className="App">
@@ -24,14 +26,25 @@ function App() {
           <Route exact path="/catalog/:slug/:item">
             <Details />
           </Route>
-          <Route exact path="/payment">
-            <Payment />
-          </Route>
           <Redirect from="/" to="/catalog" />
         </Switch>
+        {!isNull(response) && (
+          <TransitionGroup>
+            <ModalWindow response={response} activeModal={activeModal} />
+          </TransitionGroup>
+        )}
       </div>
     </Router>
   );
 }
 
-export default App;
+const mapStateToProps = ({ response, activeModal }) => {
+  return {
+    response,
+    activeModal,
+  };
+};
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

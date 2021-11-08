@@ -1,0 +1,31 @@
+.radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.radio_new {
+  padding: 6px 12px;
+
+  position: relative;
+
+  color: #383838;
+  font-size: 13px;
+  font-weight: 800;
+
+  background-color: #f3f4f0;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 2px solid #383838;
+}
+
+.radio_active {
+  color: #f3f4f0;
+
+  background-color: #14ad99;
+}

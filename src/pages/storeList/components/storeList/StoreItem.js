@@ -2,10 +2,24 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setClose } from "../../../../store/actions";
+import storeList from "../../storeList.module.css";
 
-function StoreItem({ address, name, slug, color, close, setClose, onClick }) {
-  const style = {
-    backgroundColor: color,
+function StoreItem({
+  address,
+  name,
+  slug,
+  styleData,
+  close,
+  setClose,
+  onClick,
+}) {
+  const styleItem = {
+    backgroundColor: styleData.color,
+  };
+
+  const styleBC = {
+    backgroundImage: `url(${styleData.image})`,
+    opacity: styleData.opacity,
   };
 
   useEffect(() => {
@@ -19,22 +33,24 @@ function StoreItem({ address, name, slug, color, close, setClose, onClick }) {
   }, []);
 
   return (
-    <li className="store__item" style={style} onClick={onClick}>
-      <div className="store__content content">
-        <div className="content__wrapper">
-          <p className="content__title">{name}</p>
-          <p className="content__address">{address}</p>
+    <li className={storeList.store_item} style={styleItem} onClick={onClick}>
+      <div className={storeList.bc} style={styleBC}></div>
+      <div className={storeList.content}>
+        <div className={storeList.content_wrapper}>
+          <p className={storeList.content_title}>{name}</p>
+          <p className={storeList.content_address}>{address}</p>
         </div>
-        <div className="content__info-wtapper">
+        <div className={storeList.content_info_wrapper}>
           {close === true && (
-            <p className="content__info">
-              Закрыто до: <span className="content__info--red">08:00</span>
+            <p className={storeList.content_info}>
+              Закрыто до:{" "}
+              <span className={storeList.content_info_red}>08:00</span>
             </p>
           )}
         </div>
       </div>
       <Link to={`/catalog/${slug}`}>
-        <div className="store__button">
+        <div className={storeList.store_button}>
           <svg
             width="24"
             height="24"

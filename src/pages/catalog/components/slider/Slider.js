@@ -9,6 +9,9 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import { Link } from "react-router-dom";
+import Error from "../../../../shared/error/Error";
+import catalog from "../../catalog.module.css";
+import "../../slider.css";
 
 function Slider({
   shopItem,
@@ -45,22 +48,23 @@ function Slider({
       );
     });
   }
+
   return (
-    <div className="slider-container">
+    <div className={catalog.slider_container}>
       {shopItem !== undefined ? (
         <>
-          <p className="slider__title">Кофе</p>
+          <p className={catalog.slider_title}>Кофе</p>
           <Swiper
             navigation={true}
             spaceBetween={12}
             slidesPerView={"auto"}
-            className="mySwiper"
+            className={catalog.mySwiper}
           >
             {renderSlide()}
           </Swiper>
         </>
       ) : (
-        <p>Сначала необходимо выбрать кофейню ^-^</p>
+        <Error />
       )}
     </div>
   );

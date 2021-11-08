@@ -1,0 +1,14 @@
+.window-enter {
+  transform: translateY(600px);
+}
+.window-enter-active {
+  transform: translateY(0);
+  transition: 500ms all;
+}
+.window-exit {
+  transform: translateY(0);
+}
+.window-exit-active {
+  transform: translateY(600px);
+  transition: 500ms all;
+}

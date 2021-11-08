@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { connect } from "react-redux";
 import { setDetailActiveNav } from "../../../../../store/actions";
+import details from "../../../details.module.css";
 
 function Nav({ detailActiveNav, setDetailActiveNav }) {
   const navData = [
@@ -16,13 +17,13 @@ function Nav({ detailActiveNav, setDetailActiveNav }) {
   function renderNavItem() {
     return navData.map((data) => {
       let classNavItem = classNames({
-        information__item: true,
-        "information-item": detailActiveNav === "information",
-        "modification-item": detailActiveNav === "modification",
-        "information__item-active": detailActiveNav === data.id,
-        "information-item-active":
+        [details.nav_item]: true,
+        [details.information_item]: detailActiveNav === "information",
+        [details.modification_item]: detailActiveNav === "modification",
+        [details.nav_item_active]: detailActiveNav === data.id,
+        [details.information_item_active]:
           detailActiveNav === data.id && detailActiveNav === "information",
-        "modification-item-active":
+        [details.modification_item_active]:
           detailActiveNav === data.id && detailActiveNav === "modification",
       });
 
@@ -38,8 +39,8 @@ function Nav({ detailActiveNav, setDetailActiveNav }) {
   }
 
   return (
-    <nav className="information__nav">
-      <ul className="information__list">{renderNavItem()}</ul>
+    <nav className={details.nav}>
+      <ul className={details.nav_list}>{renderNavItem()}</ul>
     </nav>
   );
 }

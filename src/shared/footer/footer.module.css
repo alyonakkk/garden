@@ -4,7 +4,6 @@
   position: fixed;
   bottom: 0;
 
-  /* max-width: 376px; */
   width: 100%;
 
   background-color: #242424;
@@ -13,7 +12,10 @@
 }
 
 .footer__flex {
+  padding: 12px 20px;
+
   display: flex;
+  align-items: center;
   gap: 36px;
 }
 
@@ -32,8 +34,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 9px;
 
   color: #959595;
+  font-size: 12px;
 
   cursor: pointer;
 }
@@ -55,6 +59,47 @@
   height: 20px;
 
   background: url(../../shared/footer/img/radio--active.png);
+}
+
+.counter__wrapper {
+  margin-right: 10px;
+  padding: 2px 6px;
+
+  color: #ffc633;
+
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.counter {
+  width: 8px;
+  height: 16px;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  width: 143px;
+  height: 55px;
+}
+
+.button {
+  color: #14ad99;
+  font-size: 13px;
+  font-weight: 800;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.btn {
+  color: #14ad99;
+  font-weight: 800;
+
+  background-color: transparent;
+  border: none;
 }
 
 .price {
@@ -85,33 +130,4 @@
   right: 0;
 
   gap: 20px;
-}
-
-.counter__wrapper {
-  margin-right: 10px;
-  padding: 2px 6px;
-
-  color: #ffc633;
-
-  background-color: #fff;
-  border-radius: 50%;
-  text-align: center;
-}
-
-.counter {
-  width: 8px;
-  height: 16px;
-}
-
-.button {
-  padding: 14px 42px;
-
-  color: #14ad99;
-  font-size: 13px;
-  font-weight: 800;
-
-  background-color: #f3f4f0;
-  border-radius: 10px;
-
-  cursor: pointer;
 }

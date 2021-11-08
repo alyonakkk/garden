@@ -1,0 +1,20 @@
+.swiper-wrapper {
+  position: relative;
+
+  display: flex;
+}
+
+.swiper-button-next {
+  position: absolute;
+  right: 20px;
+  top: 0;
+
+  width: 24px;
+  height: 24px;
+
+  background: url(./components/img/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}

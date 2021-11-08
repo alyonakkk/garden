@@ -1,0 +1,45 @@
+.text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox {
+  position: absolute;
+
+  opacity: 0;
+}
+
+.new {
+  position: relative;
+
+  width: 20px;
+  height: 20px;
+
+  background-color: #f3f4f0;
+  border: 2px solid #383838;
+  border-radius: 50%;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.check_icon {
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+
+  display: none;
+  width: 20px;
+  height: 15px;
+
+  background-image: url(./img/check_red.png);
+  background-repeat: no-repeat;
+}
+
+.check_icon_visible {
+  display: block;
+}
+
+.disabled {
+  color: #959595;
+  text-decoration: line-through;
+}

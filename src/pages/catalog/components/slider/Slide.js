@@ -1,22 +1,24 @@
 import { connect } from "react-redux";
+import countProd from "../../../../helpers/countProd";
+import catalog from "../../catalog.module.css";
 
 function Slide({ title, price, slug, order }) {
-  let filtered = order.filter((el) => el.slug === slug);
+  const prodCount = countProd(order, slug);
 
   return (
     <>
-      <div className="slide">
-        <div className="slide__content">
-          <div className="slide__icon"></div>
-          <p className="slide__title">{title}</p>
+      <div className={catalog.slide}>
+        <div className={catalog.slide_content}>
+          <div className={catalog.slide_icon}></div>
+          <p className={catalog.slide_title}>{title}</p>
         </div>
-        <div className="slider__wrapper">
-          {filtered.length !== 0 ? (
-            <p className="slide__count">x{filtered[0].counter}</p>
+        <div className={catalog.slider_wrapper}>
+          {prodCount !== 0 ? (
+            <p className={catalog.slide_count}>x{prodCount}</p>
           ) : (
-            <p className="slide__count"></p>
+            <p className={catalog.slide_count}></p>
           )}
-          <p className="slide__price">{price} ₽</p>
+          <p className={catalog.slide_price}>{price} ₽</p>
         </div>
       </div>
     </>

@@ -1,8 +1,9 @@
 import style from "../../../../shared/header/header.module.css";
+import storeList from "../../storeList.module.css";
 
 function Header({ title }) {
   return (
-    <header className={style.header + " " + style.header__storeList}>
+    <header className={style.header + " " + storeList.header}>
       <div className={style.title}>{title}</div>
       <div className={style.wrapper}>
         <div className={style.map}>

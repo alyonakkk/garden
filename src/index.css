@@ -6,11 +6,27 @@
 }
 
 body {
-  /* max-width: 376px; */
+  min-width: 375px;
+
+  font-family: "Comfortaa", cursive;
 
   background-color: #f3f4f0;
 }
 
 a {
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: "Comfortaa", cursive;
+
+  cursor: pointer;
+}
+
+input::placeholder {
+  font-family: "Comfortaa", cursive;
 }

@@ -8,23 +8,31 @@ import {
   setOrder,
   setDetailCard,
   setDetailActiveNav,
+  setModification,
+  setActivePayment,
+  setOrderTotal,
+  setResponse,
+  setActiveModal,
 } from "./actions";
 
 const initState = {
   shopData: [],
   shopItem: [],
-  close: false,
+  detailCard: [],
+  order: [],
+  modification: {},
+  orderTotal: {
+    place: null,
+    time: null,
+    comment: "",
+  },
   activeStore: "",
   activeItem: "",
-  // storeList: {
-  //   shopData: [],
-  //   shopItem: [],
-  //   close: false,
-  //   activeStore: "",
-  // },
-  order: [],
-  detailCard: [],
+  activePayment: false,
+  activeModal: false,
   detailActiveNav: "information",
+  response: null,
+  close: false,
 };
 
 export default createReducer(initState, {
@@ -51,5 +59,20 @@ export default createReducer(initState, {
   },
   [setDetailActiveNav]: (state, action) => {
     state.detailActiveNav = action.payload;
+  },
+  [setModification]: (state, action) => {
+    state.modification = action.payload;
+  },
+  [setActivePayment]: (state, action) => {
+    state.activePayment = action.payload;
+  },
+  [setOrderTotal]: (state, action) => {
+    state.orderTotal = action.payload;
+  },
+  [setResponse]: (state, action) => {
+    state.response = action.payload;
+  },
+  [setActiveModal]: (state, action) => {
+    state.activeModal = action.payload;
   },
 });

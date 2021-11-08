@@ -1,17 +1,16 @@
 .header {
   padding: 20px;
 
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 10; */
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* max-width: 376px; */
   width: 100%;
 
-  color: white;
+  /* color: white; */
 
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -25,10 +24,6 @@
   background-color: #242424;
 }
 
-.header__catalog {
-  background-color: #71d5be;
-}
-
 .title {
   color: white;
   font-size: 18px;
@@ -38,6 +33,10 @@
 
 .title__detail {
   color: #242424;
+}
+
+.title__green {
+  color: #14ad99;
 }
 
 .wrapper {
@@ -83,6 +82,10 @@
   border-radius: 10px;
 
   transition: 0.1s ease;
+}
+
+.hide__modal {
+  transform: rotate(-90deg);
 }
 
 .back:hover {

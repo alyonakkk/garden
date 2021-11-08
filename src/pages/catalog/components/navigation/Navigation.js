@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import NavigationItem from "./NavigationItem";
 import { Swiper, SwiperSlide } from "swiper/react";
+import catalog from "../../catalog.module.css";
 
 function Navigation() {
   const navData = [
@@ -113,8 +114,8 @@ function Navigation() {
   function renderNavItem() {
     return navData.map((nav) => {
       let classNavItem = classNames({
-        "nav__item-wrapper": true,
-        "nav__item-active": active === nav.id,
+        [catalog.nav_item_wrapper]: true,
+        [catalog.nav_item_active]: active === nav.id,
       });
 
       function handleNavItem() {
@@ -127,7 +128,7 @@ function Navigation() {
             title={nav.title}
             svg={nav.svg}
             path={nav.path}
-            className="nav__item"
+            className={catalog.nav_item}
             onClick={handleNavItem}
           />
         </SwiperSlide>
@@ -136,8 +137,8 @@ function Navigation() {
   }
 
   return (
-    <nav className="catalog__nav nav">
-      <ul className="nav__list">
+    <nav className={catalog.nav}>
+      <ul className={catalog.mySwiper}>
         <Swiper spaceBetween={20} slidesPerView={"auto"}>
           {renderNavItem()}
         </Swiper>

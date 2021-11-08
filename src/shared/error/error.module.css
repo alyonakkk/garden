@@ -1,0 +1,38 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 72px);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  margin-bottom: 30px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.back {
+  padding: 15px 30px;
+
+  position: relative;
+
+  color: #f669a2;
+  font-size: 18px;
+  font-weight: 800;
+
+  background-color: #f3f4f0;
+  filter: drop-shadow(2px 2px 2px #00000047);
+  border-radius: 10px;
+}
+
+.back:hover {
+  top: -3px;
+}
