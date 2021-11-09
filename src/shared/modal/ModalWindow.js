@@ -9,10 +9,11 @@ import Modal from "./Modal";
 import { connect } from "react-redux";
 import Title from "./Title";
 import Image from "./Image";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import "./window.css";
 import getTimeReady from "../../helpers/getTimeReady";
 import filterOrder from "../../helpers/filterOrder";
+import PropTypes from "prop-types";
 
 function ModalWindow({
   response,
@@ -98,6 +99,14 @@ function ModalWindow({
     </CSSTransition>
   );
 }
+
+ModalWindow.propTypes = {
+  response: PropTypes.string.isRequired,
+  activeModal: PropTypes.bool.isRequired,
+  orderTotal: PropTypes.object.isRequired,
+  shopData: PropTypes.array.isRequired,
+  activeStore: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = ({ orderTotal, shopData, activeStore }) => {
   return {

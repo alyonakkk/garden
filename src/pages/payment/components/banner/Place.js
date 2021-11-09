@@ -4,6 +4,7 @@ import RadioCircle from "../../../../shared/UI/radio/RadioCircle";
 import payment from "../../payment.module.css";
 import { setOrderTotal } from "../../../../store/actions";
 import getTotalOrder from "../../../../helpers/getTotalOrder";
+import PropTypes from "prop-types";
 
 function Place({ orderTotal, setOrderTotal }) {
   let [active, setActive] = useState(null);
@@ -30,6 +31,11 @@ function Place({ orderTotal, setOrderTotal }) {
 
   return <div className={payment.place}>{renderRadio()}</div>;
 }
+
+Place.propTypes = {
+  orderTotal: PropTypes.object.isRequired,
+  setOrderTotal: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ orderTotal }) => {
   return {

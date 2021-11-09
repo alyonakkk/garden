@@ -1,16 +1,15 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 .header {
-  position: fixed;
-  top: 0;
-  z-index: 10;
-
-  color: #ffffff;
-
   background-color: #71d5be;
 }
 
 .nav {
-  margin-top: 68px;
-
   border-bottom: 1px solid #959595;
 
   overflow: hidden;

@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import {
-  setDetailCard,
-  fetchDataGET,
-  setModification,
-} from "../../store/actions";
+import { fetchDetailCardGET, setModification } from "../../store/actions";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import details from "./details.module.css";
@@ -14,24 +10,18 @@ import Nav from "./components/banner/nav/Nav";
 import classNames from "classnames";
 import Error from "../../shared/error/Error";
 import initModification from "../../helpers/getInitModification";
+import PropTypes from "prop-types";
 
 function Details({
   activeStore,
   activeItem,
   detailCard,
-  setDetailCard,
   setModification,
   detailActiveNav,
-  fetchDataGET,
+  fetchDetailCardGET,
 }) {
   useEffect(() => {
-    fetchDataGET(
-      "http://localhost:3001/api/catalog/:shop/:item",
-      setDetailCard,
-      activeStore,
-      activeItem
-    );
-
+    fetchDetailCardGET("/catalog/:shop/:item", activeItem);
     setModification(initModification);
   }, []);
 
@@ -51,11 +41,7 @@ function Details({
     <div>
       {detailCard !== undefined ? (
         <>
-          <Header
-            title={detailCard.name}
-            size={detailCard.size}
-            activeStore={activeStore}
-          />
+          <Header detailCard={detailCard} activeStore={activeStore} />
           <div className={details.img}></div>
           <div className={classBanner}>
             <div className={details.details}>
@@ -63,7 +49,7 @@ function Details({
               <div className={details.content}>
                 <Nav />
                 {detailActiveNav === "information" ? (
-                  <Information desc={detailCard.desc} />
+                  <Information detailCard={detailCard} />
                 ) : (
                   <Modification />
                 )}
@@ -78,6 +64,15 @@ function Details({
     </div>
   );
 }
+
+Details.propTypes = {
+  activeStore: PropTypes.string.isRequired,
+  activeItem: PropTypes.string.isRequired,
+  detailCard: PropTypes.object,
+  setModification: PropTypes.func.isRequired,
+  detailActiveNav: PropTypes.string.isRequired,
+  fetchDetailCardGET: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({
   activeStore,
@@ -94,9 +89,8 @@ const mapStateToProps = ({
 };
 
 const mapDispatchToProps = {
-  setDetailCard,
   setModification,
-  fetchDataGET,
+  fetchDetailCardGET,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);

@@ -5,7 +5,7 @@ function Error() {
   return (
     <div className={error.error}>
       <div className={error.wrapper}>
-        <p className={error.text}>Выбирете сначала кофейню ^-^</p>
+        <p className={error.text}>Выберите сначала кофейню ^-^</p>
         <Link to="/catalog" className={error.back}>
           Выбрать кофейню
         </Link>

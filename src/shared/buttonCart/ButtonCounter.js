@@ -1,4 +1,5 @@
 import style from "./button.module.css";
+import PropTypes from "prop-types";
 
 function ButtonCounter({
   count,
@@ -27,5 +28,13 @@ function ButtonCounter({
     </div>
   );
 }
+
+ButtonCounter.propTypes = {
+  count: PropTypes.number.isRequired,
+  handleAdd: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  classButton: PropTypes.string,
+};
 
 export default ButtonCounter;

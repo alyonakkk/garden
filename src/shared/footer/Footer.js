@@ -7,9 +7,10 @@ import Payment from "../../pages/payment/Payment";
 import { setActivePayment } from "../../store/actions";
 import { connect } from "react-redux";
 import { TransitionGroup } from "react-transition-group";
-import { useState } from "react";
+import PropTypes from "prop-types";
+import ModalWindow from "../modal/ModalWindow";
 
-function Footer({ activePayment, setActivePayment }) {
+function Footer({ setActivePayment, response, activeModal }) {
   let classFooterItem = classNames({
     [style.item]: true,
   });
@@ -19,38 +20,43 @@ function Footer({ activePayment, setActivePayment }) {
   }
 
   return (
-    <footer className={style.footer}>
-      <ul className={style.list}>
-        <GardenItem
-          path="/"
-          title="Garden"
-          id="garden"
-          className={classFooterItem}
-        />
-        <StoresItem
-          path="/"
-          title="Кофейни"
-          id="stores"
-          className={classFooterItem}
-        />
-        <PaymentItem
-          title="К оплате"
-          id="payment"
-          className={classFooterItem}
-          onClick={handlePayment}
-        />
-        <TransitionGroup>
-          <Payment />
-        </TransitionGroup>
-      </ul>
-    </footer>
+    <>
+      <footer className={style.footer}>
+        <ul className={style.list}>
+          <GardenItem
+            path="/catalog"
+            title="Garden"
+            id="garden"
+            className={classFooterItem}
+          />
+          <StoresItem
+            path="/catalog"
+            title="Кофейни"
+            id="stores"
+            className={classFooterItem}
+          />
+          <PaymentItem
+            title="К оплате"
+            id="payment"
+            className={classFooterItem}
+            onClick={handlePayment}
+          />
+
+          <TransitionGroup>
+            <Payment />
+          </TransitionGroup>
+        </ul>
+      </footer>
+    </>
   );
 }
 
-const mapStateToProps = ({ activePayment }) => {
-  return {
-    activePayment,
-  };
+Footer.propTypes = {
+  setActivePayment: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ response, activeModal }) => {
+  return { response, activeModal };
 };
 
 const mapDispatchToProps = {

@@ -1,27 +1,13 @@
 .header {
   padding: 20px;
 
-  /* position: fixed;
-  top: 0;
-  z-index: 10; */
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
-  /* color: white; */
-
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-}
-
-.header__detail {
-  color: #242424;
-}
-
-.header__storeList {
-  background-color: #242424;
 }
 
 .title {
@@ -29,10 +15,6 @@
   font-size: 18px;
   font-weight: 800;
   line-height: 26px;
-}
-
-.title__detail {
-  color: #242424;
 }
 
 .title__green {
@@ -58,51 +40,4 @@
 
   width: 60px;
   height: 60px;
-}
-
-.logo__storeList {
-  background: url(../../pages/storeList/img/login.png);
-}
-
-.logo__catalog {
-  background: url(../../pages/catalog/components/img/catalog-login.png);
-}
-
-.back {
-  padding: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;
-
-  color: #242424;
-
-  border: 2px solid #383838;
-  border-radius: 10px;
-
-  transition: 0.1s ease;
-}
-
-.hide__modal {
-  transform: rotate(-90deg);
-}
-
-.back:hover {
-  border-color: #ffc633;
-  color: #ffc633;
-}
-
-.size {
-  font-size: 10px;
-  font-weight: 800;
-  line-height: 14px;
-}
-
-.favorite {
-  cursor: pointer;
-}
-
-.favorite__active {
-  color: #ffc633;
 }

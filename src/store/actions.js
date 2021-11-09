@@ -14,7 +14,6 @@ import {
   SET_ORDER_TOTAL,
   SET_RESPONSE,
   SET_ACTIVE_MODAL,
-  RESET_STATE,
 } from "../store/constants";
 
 const setShopData = createAction(SET_SHOP_DATA);
@@ -31,17 +30,46 @@ const setOrderTotal = createAction(SET_ORDER_TOTAL);
 const setResponse = createAction(SET_RESPONSE);
 const setActiveModal = createAction(SET_ACTIVE_MODAL);
 
-function fetchDataGET(url, action, slug, item) {
+const client = axios.create({
+  baseURL: "http://localhost:3001/api/",
+});
+
+function fetchShopDataGET(url) {
   return function (dispatch) {
-    axios.get(url).then((response) => {
-      if (slug !== undefined && item === undefined) {
-        dispatch(action(response.data["items"][slug]));
-      } else if (slug !== undefined && item !== undefined) {
-        dispatch(action(response.data["item"][item]));
-      } else {
-        dispatch(action(response.data));
-      }
-    });
+    client
+      .get(url)
+      .then((response) => {
+        dispatch(setShopData(response.data));
+      })
+      .catch(() => {
+        dispatch(setResponse("faild"));
+      });
+  };
+}
+
+function fetchShopItemGET(url, item) {
+  return function (dispatch) {
+    client
+      .get(url)
+      .then((response) => {
+        dispatch(setShopItem(response.data["items"][item]));
+      })
+      .catch(() => {
+        dispatch(setResponse("faild"));
+      });
+  };
+}
+
+function fetchDetailCardGET(url, item) {
+  return function (dispatch) {
+    client
+      .get(url)
+      .then((response) => {
+        dispatch(setDetailCard(response.data["item"][item]));
+      })
+      .catch(() => {
+        dispatch(setResponse("faild"));
+      });
   };
 }
 
@@ -84,6 +112,8 @@ export {
   setOrderTotal,
   setResponse,
   setActiveModal,
-  fetchDataGET,
+  fetchShopDataGET,
+  fetchShopItemGET,
+  fetchDetailCardGET,
   fetchDataPOST,
 };

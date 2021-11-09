@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import radio from "./radioCircle.module.css";
+import PropTypes from "prop-types";
 
 function RadioCircle({ title, name, id, active, setActive }) {
   let classCheckIcon = classNames({
@@ -27,5 +28,12 @@ function RadioCircle({ title, name, id, active, setActive }) {
     </label>
   );
 }
+
+RadioCircle.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  setActive: PropTypes.func.isRequired,
+};
 
 export default RadioCircle;

@@ -7,12 +7,14 @@ function Modification() {
       id: "additives",
       title: "Без добавок",
       checked: true,
+      key: "",
     },
     {
       id: "cream",
       title: "Сливки",
       price: 20,
       checked: false,
+      key: "additives",
     },
   ];
 
@@ -21,17 +23,20 @@ function Modification() {
       id: "option",
       title: "Без модификаций",
       checked: true,
+      key: "",
     },
     {
       id: "sugarLess",
       title: "Меньше сахара",
       checked: false,
+      key: "option",
     },
     {
       id: "soyaMilk",
       title: "Соевое молоко",
       price: 20,
       checked: false,
+      key: "option",
     },
   ];
 

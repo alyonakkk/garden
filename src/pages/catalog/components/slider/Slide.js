@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import countProd from "../../../../helpers/countProd";
 import catalog from "../../catalog.module.css";
+import PropTypes from "prop-types";
 
 function Slide({ title, price, slug, order }) {
   const prodCount = countProd(order, slug);
@@ -24,6 +25,13 @@ function Slide({ title, price, slug, order }) {
     </>
   );
 }
+
+Slide.propTypes = {
+  title: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  order: PropTypes.array.isRequired,
+};
 
 const mapStateToProps = ({ order }) => {
   return {

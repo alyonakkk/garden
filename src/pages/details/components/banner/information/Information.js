@@ -1,11 +1,16 @@
 import details from "../../../details.module.css";
+import PropTypes from "prop-types";
 
-function Information({ desc }) {
+function Information({ detailCard }) {
   return (
     <div className={details.container}>
-      <div className={details.desc}>{desc}</div>
+      <div className={details.desc}>{detailCard.desc}</div>
     </div>
   );
 }
+
+Information.propTypes = {
+  detailCard: PropTypes.object.isRequired,
+};
 
 export default Information;

@@ -2,13 +2,14 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import modal from "./modal.module.css";
 import { setActiveModal } from "../../store/actions";
+import PropTypes from "prop-types";
 
 function Modal({ data, setActiveModal }) {
   function handleLink() {
     setActiveModal(false);
     setTimeout(() => {
       window.location.reload();
-    }, 450);
+    }, 500);
   }
 
   function renderSuccessList() {
@@ -36,17 +37,30 @@ function Modal({ data, setActiveModal }) {
       ) : (
         <p className={modal.modal_text}>{data.modal.text}</p>
       )}
-      <Link
+      {/* <Link
         to="/"
         className={modal.button}
         style={{ backgroundColor: `${data.style.backgroundColorButton}` }}
         onClick={handleLink}
       >
         Ok
-      </Link>
+      </Link> */}
+      <a
+        href="/"
+        className={modal.button}
+        style={{ backgroundColor: `${data.style.backgroundColorButton}` }}
+        onClick={handleLink}
+      >
+        Ok
+      </a>
     </div>
   );
 }
+
+Modal.propTypes = {
+  data: PropTypes.object.isRequired,
+  setActiveModal: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ orderTotal }) => {
   return {

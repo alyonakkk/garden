@@ -3,6 +3,7 @@ import payment from "../../payment.module.css";
 import OrderHeader from "./OrderHeader";
 import ProdInfo from "./ProdInfo";
 import ProdTitle from "./ProdTitle";
+import PropTypes from "prop-types";
 
 function Order({ order }) {
   function renderOrderCard() {
@@ -23,6 +24,10 @@ function Order({ order }) {
     </div>
   );
 }
+
+Order.propTypes = {
+  order: PropTypes.array.isRequired,
+};
 
 const mapStateToProps = ({ order }) => {
   return {

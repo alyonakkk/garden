@@ -1,20 +1,19 @@
-import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-function NavigationItem({ activeStore, title, svg, path, ...props }) {
+function NavigationItem({ title, svg, onClick, className }) {
   return (
-    <li {...props}>
-      {svg}
+    <li className={className} onClick={onClick}>
+      <div dangerouslySetInnerHTML={svg} />
       <p>{title}</p>
     </li>
   );
 }
 
-const mapStateToProps = ({ activeStore }) => {
-  return {
-    activeStore,
-  };
+NavigationItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  svg: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationItem);
+export default NavigationItem;

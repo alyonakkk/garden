@@ -3,6 +3,7 @@ import initModification from "../../../../../helpers/getInitModification";
 import CheckBoxModification from "../../../../../shared/UI/checkbox/checkBoxModification";
 import { setOrder, setModification } from "../../../../../store/actions";
 import details from "../../../details.module.css";
+import PropTypes from "prop-types";
 
 function ModificationList({ title, list, modification, setModification }) {
   function renderList(list) {
@@ -12,17 +13,34 @@ function ModificationList({ title, list, modification, setModification }) {
 
         if (index === 0 && item.checked) {
           setModification(initModification);
+          // const filteredMod = list.filter((value) => {
+          //   return value.key === item.id && value.checked;
+          // });
+
+          // filteredMod.forEach((mod) => {
+          //   setModification({
+          //     ...modification,
+          //     [item.id]: {
+          //       ...modification[item.id],
+          //       value: true,
+          //     },
+          //     [mod.id]: {
+          //       ...modification[mod.id],
+          //       value: false,
+          //     },
+          //   });
+          // });
         } else {
-          setModification(updateModification(item.id, item.checked));
+          setModification(updateModification());
         }
       }
 
-      function updateModification(prop, val) {
+      function updateModification() {
         return {
           ...modification,
-          [prop]: {
-            ...modification[prop],
-            value: val,
+          [item.id]: {
+            ...modification[item.id],
+            value: item.checked,
           },
         };
       }
@@ -61,6 +79,13 @@ function ModificationList({ title, list, modification, setModification }) {
     </form>
   );
 }
+
+ModificationList.propTypes = {
+  title: PropTypes.string.isRequired,
+  list: PropTypes.array.isRequired,
+  modification: PropTypes.object.isRequired,
+  setModification: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ order, detailCard, modification }) => {
   return {

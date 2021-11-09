@@ -1,10 +1,12 @@
-import style from "../../../../shared/header/header.module.css";
+import details from "../../details.module.css";
+import style from "../../../../shared/infoHeader/infoHeader.module.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function Header({ title, size, activeStore }) {
+function Header({ detailCard, activeStore }) {
   return (
-    <div className={style.header + " " + style.header__detail}>
-      <div className={style.wrapper}>
+    <div className={style.header}>
+      <div className={style.header_wrapper}>
         <Link to={`/catalog/${activeStore}`} className={style.back}>
           <svg
             width="12"
@@ -19,11 +21,11 @@ function Header({ title, size, activeStore }) {
             />
           </svg>
         </Link>
-        <p className={style.title + " " + style.title__detail}>{title}</p>
+        <p className={style.title}>{detailCard.title}</p>
       </div>
-      <div className={style.wrapper}>
-        <p className={style.size}>{size} мл.</p>
-        <div className={style.favorite}>
+      <div className={style.header_wrapper}>
+        <p className={details.size}>{detailCard.size} мл.</p>
+        <div className={details.favorite}>
           <svg
             width="22"
             height="18"
@@ -41,5 +43,10 @@ function Header({ title, size, activeStore }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  detailCard: PropTypes.object.isRequired,
+  activeStore: PropTypes.string,
+};
 
 export default Header;

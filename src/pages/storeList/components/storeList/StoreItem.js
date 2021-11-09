@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setClose } from "../../../../store/actions";
+import { setClose, setActiveStore } from "../../../../store/actions";
 import storeList from "../../storeList.module.css";
+import PropTypes from "prop-types";
 
 function StoreItem({
   address,
@@ -11,6 +12,7 @@ function StoreItem({
   styleData,
   close,
   setClose,
+  setActiveStore,
   onClick,
 }) {
   const styleItem = {
@@ -32,6 +34,10 @@ function StoreItem({
     }
   }, []);
 
+  function handleStoreLink() {
+    setActiveStore(slug);
+  }
+
   return (
     <li className={storeList.store_item} style={styleItem} onClick={onClick}>
       <div className={storeList.bc} style={styleBC}></div>
@@ -49,7 +55,7 @@ function StoreItem({
           )}
         </div>
       </div>
-      <Link to={`/catalog/${slug}`}>
+      <Link to={`/catalog/${slug}`} onClick={handleStoreLink}>
         <div className={storeList.store_button}>
           <svg
             width="24"
@@ -69,6 +75,16 @@ function StoreItem({
   );
 }
 
+StoreItem.propTypes = {
+  address: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  close: PropTypes.bool.isRequired,
+  setClose: PropTypes.func.isRequired,
+  setActiveStore: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+};
+
 const mapStateToProps = ({ close }) => {
   return {
     close,
@@ -77,6 +93,7 @@ const mapStateToProps = ({ close }) => {
 
 const mapDispatchToProps = {
   setClose,
+  setActiveStore,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoreItem);

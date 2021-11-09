@@ -18,7 +18,7 @@ import {
 const initState = {
   shopData: [],
   shopItem: [],
-  detailCard: [],
+  detailCard: {},
   order: [],
   modification: {},
   orderTotal: {
@@ -31,7 +31,7 @@ const initState = {
   activePayment: false,
   activeModal: false,
   detailActiveNav: "information",
-  response: null,
+  response: "",
   close: false,
 };
 

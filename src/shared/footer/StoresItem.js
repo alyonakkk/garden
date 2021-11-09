@@ -1,10 +1,24 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setActiveStore, setOrder } from "../../store/actions";
 import style from "./footer.module.css";
+import PropTypes from "prop-types";
 
-function StoresItem({ activeStore, path, title, ...props }) {
+function StoresItem({
+  setActiveStore,
+  setOrder,
+  activeStore,
+  path,
+  title,
+  ...props
+}) {
+  function handleLink() {
+    setActiveStore("");
+    setOrder([]);
+  }
+
   return (
-    <Link to={path}>
+    <Link to={path} onClick={handleLink}>
       <li {...props}>
         <svg
           width="24"
@@ -25,12 +39,23 @@ function StoresItem({ activeStore, path, title, ...props }) {
   );
 }
 
+StoresItem.propTypes = {
+  setActiveStore: PropTypes.func.isRequired,
+  setOrder: PropTypes.func.isRequired,
+  activeStore: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
 const mapStateToProps = ({ activeStore }) => {
   return {
     activeStore,
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  setActiveStore,
+  setOrder,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoresItem);

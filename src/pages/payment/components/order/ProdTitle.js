@@ -1,4 +1,5 @@
 import payment from "../../payment.module.css";
+import PropTypes from "prop-types";
 
 function ProdTitle({ title }) {
   return (
@@ -21,5 +22,9 @@ function ProdTitle({ title }) {
     </div>
   );
 }
+
+ProdTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default ProdTitle;

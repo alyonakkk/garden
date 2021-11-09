@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import checkbox from "./checkBoxRules.module.css";
+import PropTypes from "prop-types";
 
 function CheckBoxRules({ title, name, id, active, setActive }) {
   let classCheckIcon = classNames({
@@ -27,5 +28,13 @@ function CheckBoxRules({ title, name, id, active, setActive }) {
     </label>
   );
 }
+
+CheckBoxRules.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  setActive: PropTypes.func.isRequired,
+};
 
 export default CheckBoxRules;

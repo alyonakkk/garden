@@ -16,15 +16,9 @@ import {
 import getTotalOrder from "../../../../helpers/getTotalOrder";
 import isNull from "../../../../helpers/isNull";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
-function Banner({
-  order,
-  orderTotal,
-  setOrderTotal,
-  setResponse,
-  setActiveModal,
-  fetchDataPOST,
-}) {
+function Banner({ order, orderTotal, setOrderTotal, fetchDataPOST }) {
   useEffect(() => {
     setOrderTotal(getTotalOrder(orderTotal, "order", order));
   }, [order]);
@@ -38,11 +32,6 @@ function Banner({
       orderTotal.order.length !== 0
     ) {
       fetchDataPOST("https://jsonplaceholder.typicode.com/todos", orderTotal);
-    } else {
-      setTimeout(() => {
-        setActiveModal(true);
-      }, 100);
-      setResponse("faild");
     }
   }
 
@@ -68,6 +57,13 @@ function Banner({
     </>
   );
 }
+
+Banner.propTypes = {
+  order: PropTypes.array.isRequired,
+  orderTotal: PropTypes.object.isRequired,
+  setOrderTotal: PropTypes.func.isRequired,
+  fetchDataPOST: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ order, orderTotal }) => {
   return {

@@ -1,8 +1,9 @@
-import style from "../../../../shared/header/header.module.css";
+import style from "../../../../shared/infoHeader/infoHeader.module.css";
 import payment from "../../payment.module.css";
 import { connect } from "react-redux";
 import sumPrice from "../../../../helpers/sumPrice";
 import { setActivePayment } from "../../../../store/actions";
+import PropTypes from "prop-types";
 
 function Header({ setActivePayment, order }) {
   function handleClose() {
@@ -10,15 +11,16 @@ function Header({ setActivePayment, order }) {
   }
 
   return (
-    <div className={style.header + " " + payment.header}>
+    <div className={style.header}>
       <div className={style.wrapper}>
-        <p className={style.title + " " + style.title__detail}>
-          Итого: <span className={style.title__green}>{sumPrice(order)} ₽</span>
+        <p className={style.title}>
+          Итого:{" "}
+          <span className={payment.title_price}>{sumPrice(order)} ₽</span>
         </p>
       </div>
 
       <div
-        className={style.back + " " + style.hide__modal}
+        className={style.back + " " + payment.hide_modal}
         onClick={handleClose}
       >
         <svg
@@ -37,6 +39,11 @@ function Header({ setActivePayment, order }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  order: PropTypes.array.isRequired,
+  setActivePayment: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ order }) => {
   return {

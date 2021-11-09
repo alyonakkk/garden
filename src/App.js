@@ -7,12 +7,8 @@ import {
 import Store from "./pages/storeList/Store";
 import Catalog from "./pages/catalog/Catalog";
 import Details from "./pages/details/Details";
-import isNull from "./helpers/isNull";
-import ModalWindow from "./shared/modal/ModalWindow";
-import { connect } from "react-redux";
-import { TransitionGroup } from "react-transition-group";
 
-function App({ response, activeModal }) {
+function App() {
   return (
     <Router>
       <div className="App">
@@ -28,23 +24,9 @@ function App({ response, activeModal }) {
           </Route>
           <Redirect from="/" to="/catalog" />
         </Switch>
-        {!isNull(response) && (
-          <TransitionGroup>
-            <ModalWindow response={response} activeModal={activeModal} />
-          </TransitionGroup>
-        )}
       </div>
     </Router>
   );
 }
 
-const mapStateToProps = ({ response, activeModal }) => {
-  return {
-    response,
-    activeModal,
-  };
-};
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

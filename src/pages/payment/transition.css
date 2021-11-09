@@ -1,14 +1,14 @@
-.window-enter {
-  transform: translateY(600px);
+.win-enter {
+  transform: translateY(100vh);
 }
-.window-enter-active {
+.win-enter-active {
   transform: translateY(0);
-  transition: 500ms all;
+  transition: 400ms all;
 }
-.window-exit {
+.win-exit {
   transform: translateY(0);
 }
-.window-exit-active {
-  transform: translateY(600px);
-  transition: 500ms all;
+.win-exit-active {
+  transform: translateY(100vh);
+  transition: 400ms all;
 }

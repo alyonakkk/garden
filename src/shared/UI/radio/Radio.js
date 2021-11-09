@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import radio from "./radio.module.css";
+import PropTypes from "prop-types";
 
 function Radio({ title, name, id, active, setActive }) {
   let classRadio = classNames({
@@ -18,5 +19,13 @@ function Radio({ title, name, id, active, setActive }) {
     </label>
   );
 }
+
+Radio.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  active: PropTypes.string.isRequired,
+  setActive: PropTypes.func.isRequired,
+};
 
 export default Radio;

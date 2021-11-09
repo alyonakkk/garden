@@ -3,7 +3,7 @@ import CheckBoxRules from "../../../../shared/UI/checkbox/CheckBoxRules";
 import payment from "../../payment.module.css";
 
 function Pay() {
-  let [active, setActive] = useState(null);
+  let [active, setActive] = useState(false);
 
   return (
     <div className={payment.pay_container}>

@@ -1,3 +1,13 @@
+.size {
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 14px;
+}
+
+.favorite {
+  cursor: pointer;
+}
+
 .main_img {
   color: black;
 }
@@ -55,7 +65,6 @@
 
 .content {
   padding: 20px;
-  margin-bottom: 86px;
 }
 
 .nav {

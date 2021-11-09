@@ -1,4 +1,5 @@
 import modal from "./modal.module.css";
+import PropTypes from "prop-types";
 
 function Image({ data }) {
   return (
@@ -10,5 +11,9 @@ function Image({ data }) {
     </div>
   );
 }
+
+Image.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default Image;

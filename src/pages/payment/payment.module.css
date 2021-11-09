@@ -1,3 +1,11 @@
+.title_price {
+  color: #14ad99;
+}
+
+.hide_modal {
+  transform: rotate(-90deg);
+}
+
 .window {
   position: fixed;
   left: 0;
@@ -16,13 +24,14 @@
 }
 
 .payment_wrap {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
   width: 100%;
 }
 
 .payment {
-  position: relative;
-
   height: 566px;
   width: 100%;
 
@@ -39,20 +48,9 @@
   height: 16px;
 
   background: url(./img/decorate.png);
-  /* background-position: center; */
-  /* background-size: cover; */
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  color: #242424;
 }
 
 .wrapper {
-  margin-top: 93px;
   padding: 0 0 20px 20px;
 }
 

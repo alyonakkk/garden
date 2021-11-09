@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import {
   setActiveStore,
   setShopData,
-  fetchDataGET,
+  setOrder,
+  fetchShopDataGET,
 } from "../../../../store/actions";
 import { useEffect } from "react";
 import storeList from "../../storeList.module.css";
@@ -14,8 +15,9 @@ import blueBC from "../../img/blue.png";
 import redBC from "../../img/red.png";
 import grassyBC from "../../img/grassy.png";
 import orangeBC from "../../img/orange.png";
+import PropTypes from "prop-types";
 
-function StoreList({ shopData, setActiveStore, setShopData, fetchDataGET }) {
+function StoreList({ shopData, fetchShopDataGET }) {
   const styleData = [
     {
       color: "#2A2A2A",
@@ -55,22 +57,17 @@ function StoreList({ shopData, setActiveStore, setShopData, fetchDataGET }) {
   ];
 
   useEffect(() => {
-    fetchDataGET("http://localhost:3001/api/catalog/", setShopData);
+    fetchShopDataGET("/catalog/");
   }, []);
 
   function renderStoreItem() {
     return shopData.map(({ address, name, slug }, index) => {
-      function handleStoreItem() {
-        setActiveStore(slug);
-      }
-
       return (
         <StoreItem
           address={address}
           name={name}
           slug={slug}
           styleData={styleData[index]}
-          onClick={handleStoreItem}
           key={index}
         />
       );
@@ -84,16 +81,24 @@ function StoreList({ shopData, setActiveStore, setShopData, fetchDataGET }) {
   );
 }
 
-const mapStateToProps = ({ shopData }) => {
+StoreList.propTypes = {
+  shopData: PropTypes.array.isRequired,
+  setShopData: PropTypes.func.isRequired,
+  fetchShopDataGET: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ shopData, activeStore }) => {
   return {
     shopData,
+    activeStore,
   };
 };
 
 const mapDispatchToProps = {
   setActiveStore,
   setShopData,
-  fetchDataGET,
+  setOrder,
+  fetchShopDataGET,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoreList);

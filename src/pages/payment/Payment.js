@@ -4,16 +4,18 @@ import payment from "./payment.module.css";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import "./transition.css";
+import PropTypes from "prop-types";
 
-function Payment({ activePayment }) {
+function Payment({ activePayment, activeStore }) {
   return (
-    <div
-      className={`${payment.window} ${activePayment && payment.window_block}`}
-    >
+    <>
+      <div
+        className={`${payment.window} ${activePayment && payment.window_block}`}
+      ></div>
       <CSSTransition
         in={activePayment}
-        timeout={500}
-        classNames="window"
+        timeout={400}
+        classNames="win"
         unmountOnExit
       >
         <div className={payment.payment_wrap}>
@@ -21,18 +23,30 @@ function Payment({ activePayment }) {
           <div className={payment.payment}>
             <Header />
             <div className={payment.wrapper}>
-              <Banner />
+              {activeStore.length !== 0 ? (
+                <>
+                  <Banner />
+                </>
+              ) : (
+                "Выберите кофейню"
+              )}
             </div>
           </div>
         </div>
       </CSSTransition>
-    </div>
+    </>
   );
 }
 
-const mapStateToProps = ({ activePayment }) => {
+Payment.propTypes = {
+  activePayment: PropTypes.bool.isRequired,
+  activeStore: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = ({ activePayment, activeStore }) => {
   return {
     activePayment,
+    activeStore,
   };
 };
 

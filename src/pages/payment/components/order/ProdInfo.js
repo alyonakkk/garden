@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getProd, getProdIndex } from "../../../../helpers/getProd";
 import ButtonCart from "../../../../shared/buttonCart/ButtonCart";
 import sumModidfication from "../../../../helpers/sumModification";
+import PropTypes from "prop-types";
 
 function ProdInfo({ item, order, setOrder }) {
   const { slug, price, count, modification } = item;
@@ -49,6 +50,12 @@ function ProdInfo({ item, order, setOrder }) {
     </div>
   );
 }
+
+ProdInfo.propTypes = {
+  item: PropTypes.object.isRequired,
+  order: PropTypes.array.isRequired,
+  setOrder: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ order }) => {
   return {

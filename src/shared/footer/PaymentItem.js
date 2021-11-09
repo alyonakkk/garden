@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import quantityProds from "../../helpers/quantityProds";
 import sumPrice from "../../helpers/sumPrice";
 import style from "./footer.module.css";
+import PropTypes from "prop-types";
 
 function PaymentItem({ activeStore, order, title, ...props }) {
   return (
@@ -32,6 +33,12 @@ function PaymentItem({ activeStore, order, title, ...props }) {
     </li>
   );
 }
+
+PaymentItem.propTypes = {
+  activeStore: PropTypes.string.isRequired,
+  order: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = ({ activeStore, order }) => {
   return {

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Input from "../../../../shared/UI/input/Input";
 import { setOrderTotal } from "../../../../store/actions";
 import getTotalOrder from "../../../../helpers/getTotalOrder";
+import PropTypes from "prop-types";
 
 function Comment({ orderTotal, setOrderTotal }) {
   let [value, setValue] = useState("");
@@ -23,6 +24,11 @@ function Comment({ orderTotal, setOrderTotal }) {
     />
   );
 }
+
+Comment.propTypes = {
+  orderTotal: PropTypes.object.isRequired,
+  setOrderTotal: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ orderTotal }) => {
   return {

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import checkbox from "./checkBoxModification.module.css";
+import PropTypes from "prop-types";
 
 function CheckBoxModification({ item, changeCheckBox, isChecked, isDisabled }) {
   let classLabel = classNames({
@@ -28,5 +29,12 @@ function CheckBoxModification({ item, changeCheckBox, isChecked, isDisabled }) {
     </label>
   );
 }
+
+CheckBoxModification.propTypes = {
+  item: PropTypes.object.isRequired,
+  changeCheckBox: PropTypes.func.isRequired,
+  isChecked: PropTypes.func.isRequired,
+  isDisabled: PropTypes.func.isRequired,
+};
 
 export default CheckBoxModification;

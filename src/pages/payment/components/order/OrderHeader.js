@@ -1,4 +1,5 @@
 import payment from "../../payment.module.css";
+import PropTypes from "prop-types";
 
 function OrderHeader({ title }) {
   return (
@@ -7,5 +8,9 @@ function OrderHeader({ title }) {
     </div>
   );
 }
+
+OrderHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default OrderHeader;

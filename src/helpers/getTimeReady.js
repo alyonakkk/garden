@@ -18,7 +18,9 @@ function getTimeReady(orderTotal) {
     } else {
       minutesReady += time;
     }
-    return `${hourReady}:${minutesReady}`;
+    return `${("000" + hourReady).slice(-2)}:${("000" + minutesReady).slice(
+      -2
+    )}`;
   }
   return 0;
 }

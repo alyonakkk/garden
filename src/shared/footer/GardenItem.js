@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function GardenItem({ path, title, ...props }) {
   return (
@@ -21,5 +22,10 @@ function GardenItem({ path, title, ...props }) {
     </Link>
   );
 }
+
+GardenItem.propTypes = {
+  path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default GardenItem;

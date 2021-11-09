@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { connect } from "react-redux";
 import { setDetailActiveNav } from "../../../../../store/actions";
 import details from "../../../details.module.css";
+import PropTypes from "prop-types";
 
 function Nav({ detailActiveNav, setDetailActiveNav }) {
   const navData = [
@@ -44,6 +45,11 @@ function Nav({ detailActiveNav, setDetailActiveNav }) {
     </nav>
   );
 }
+
+Nav.propTypes = {
+  detailActiveNav: PropTypes.string.isRequired,
+  setDetailActiveNav: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ detailActiveNav }) => {
   return {
