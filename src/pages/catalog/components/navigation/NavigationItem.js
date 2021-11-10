@@ -11,7 +11,9 @@ function NavigationItem({ title, svg, onClick, className }) {
 
 NavigationItem.propTypes = {
   title: PropTypes.string.isRequired,
-  svg: PropTypes.object.isRequired,
+  svg: PropTypes.shape({
+    __html: PropTypes.string.isRequired,
+  }),
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string.isRequired,
 };

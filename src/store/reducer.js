@@ -35,7 +35,7 @@ const initState = {
   close: false,
 };
 
-export default createReducer(initState, {
+const reducer = createReducer(initState, {
   [setShopData]: (state, action) => {
     state.shopData = action.payload;
   },
@@ -76,3 +76,5 @@ export default createReducer(initState, {
     state.activeModal = action.payload;
   },
 });
+
+export { reducer };

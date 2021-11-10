@@ -21,7 +21,7 @@ function Details({
   fetchDetailCardGET,
 }) {
   useEffect(() => {
-    fetchDetailCardGET("/catalog/:shop/:item", activeItem);
+    fetchDetailCardGET(`/catalog/:shop/:item`, activeItem);
     setModification(initModification);
   }, []);
 

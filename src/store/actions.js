@@ -1,5 +1,6 @@
 import { createAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import client from "../shared/API/client";
 import {
   SET_SHOP_DATA,
   SET_CLOSE,
@@ -30,10 +31,6 @@ const setOrderTotal = createAction(SET_ORDER_TOTAL);
 const setResponse = createAction(SET_RESPONSE);
 const setActiveModal = createAction(SET_ACTIVE_MODAL);
 
-const client = axios.create({
-  baseURL: "http://localhost:3001/api/",
-});
-
 function fetchShopDataGET(url) {
   return function (dispatch) {
     client
@@ -44,6 +41,14 @@ function fetchShopDataGET(url) {
       .catch(() => {
         dispatch(setResponse("faild"));
       });
+  };
+}
+
+function fetchData(url) {
+  return function (dispatch) {
+    client.get(url).then((resp) => {
+      console.log(resp.data);
+    });
   };
 }
 
@@ -66,6 +71,7 @@ function fetchDetailCardGET(url, item) {
       .get(url)
       .then((response) => {
         dispatch(setDetailCard(response.data["item"][item]));
+        console.log(response.data);
       })
       .catch(() => {
         dispatch(setResponse("faild"));
@@ -116,4 +122,5 @@ export {
   fetchShopItemGET,
   fetchDetailCardGET,
   fetchDataPOST,
+  fetchData,
 };
