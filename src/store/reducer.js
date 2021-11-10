@@ -16,9 +16,6 @@ import {
 } from "./actions";
 
 const initState = {
-  shopData: [],
-  shopItem: [],
-  detailCard: {},
   order: [],
   modification: {},
   orderTotal: {
@@ -30,15 +27,45 @@ const initState = {
   activeItem: "",
   activePayment: false,
   activeModal: false,
-  detailActiveNav: "information",
   response: "",
   close: false,
 };
 
-const reducer = createReducer(initState, {
+const shopDataInit = {
+  shopData: [],
+};
+
+const shopItemInit = {
+  shopItem: [],
+};
+
+const detailCardInit = {
+  detailCard: {},
+  detailActiveNav: "information",
+};
+
+const shopDataReducer = createReducer(shopDataInit, {
   [setShopData]: (state, action) => {
     state.shopData = action.payload;
   },
+});
+
+const shopItemReducer = createReducer(shopItemInit, {
+  [setShopItem]: (state, action) => {
+    state.shopItem = action.payload;
+  },
+});
+
+const detailCardReducer = createReducer(detailCardInit, {
+  [setDetailCard]: (state, action) => {
+    state.detailCard = action.payload;
+  },
+  [setDetailActiveNav]: (state, action) => {
+    state.detailActiveNav = action.payload;
+  },
+});
+
+const reducer = createReducer(initState, {
   [setClose]: (state, action) => {
     state.close = action.payload;
   },
@@ -48,17 +75,8 @@ const reducer = createReducer(initState, {
   [setActiveItem]: (state, action) => {
     state.activeItem = action.payload;
   },
-  [setShopItem]: (state, action) => {
-    state.shopItem = action.payload;
-  },
   [setOrder]: (state, action) => {
     state.order = action.payload;
-  },
-  [setDetailCard]: (state, action) => {
-    state.detailCard = action.payload;
-  },
-  [setDetailActiveNav]: (state, action) => {
-    state.detailActiveNav = action.payload;
   },
   [setModification]: (state, action) => {
     state.modification = action.payload;
@@ -77,4 +95,4 @@ const reducer = createReducer(initState, {
   },
 });
 
-export { reducer };
+export { reducer, shopDataReducer, shopItemReducer, detailCardReducer };

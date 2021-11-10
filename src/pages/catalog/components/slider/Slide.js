@@ -33,9 +33,9 @@ Slide.propTypes = {
   order: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = ({ order }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    order,
+    order: main.order,
   };
 };
 

@@ -47,9 +47,9 @@ StoresItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ activeStore }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    activeStore,
+    activeStore: main.activeStore,
   };
 };
 

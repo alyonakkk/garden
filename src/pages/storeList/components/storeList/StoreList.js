@@ -5,7 +5,6 @@ import {
   setShopData,
   setOrder,
   fetchShopDataGET,
-  fetchData,
 } from "../../../../store/actions";
 import { useEffect } from "react";
 import storeList from "../../storeList.module.css";
@@ -18,7 +17,7 @@ import grassyBC from "../../img/grassy.png";
 import orangeBC from "../../img/orange.png";
 import PropTypes from "prop-types";
 
-function StoreList({ shopData, fetchShopDataGET, fetchData }) {
+function StoreList({ shopData, fetchShopDataGET }) {
   const styleData = [
     {
       color: "#2A2A2A",
@@ -88,10 +87,10 @@ StoreList.propTypes = {
   fetchShopDataGET: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ shopData, activeStore }) => {
+const mapStateToProps = ({ stores, main }) => {
   return {
-    shopData,
-    activeStore,
+    shopData: stores.shopData,
+    activeStore: main.activeStore,
   };
 };
 
@@ -100,7 +99,6 @@ const mapDispatchToProps = {
   setShopData,
   setOrder,
   fetchShopDataGET,
-  fetchData,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoreList);

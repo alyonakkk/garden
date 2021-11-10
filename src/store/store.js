@@ -1,14 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reducer } from "../store/reducer";
+import {
+  reducer,
+  shopDataReducer,
+  shopItemReducer,
+  detailCardReducer,
+} from "../store/reducer";
 import { combineReducers } from "redux";
 
-// const rootReducer = combineReducers({
-//   main: reducer,
-//   shop: shopReducer,
-// });
+const rootReducer = combineReducers({
+  main: reducer,
+  stores: shopDataReducer,
+  catalog: shopItemReducer,
+  card: detailCardReducer,
+});
 
 const store = configureStore({
-  reducer: reducer,
+  reducer: rootReducer,
 });
 
 export default store;

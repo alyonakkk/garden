@@ -108,11 +108,11 @@ ModalWindow.propTypes = {
   activeStore: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ orderTotal, shopData, activeStore }) => {
+const mapStateToProps = ({ stores, main }) => {
   return {
-    orderTotal,
-    shopData,
-    activeStore,
+    orderTotal: main.orderTotal,
+    shopData: stores.shopData,
+    activeStore: main.activeStore,
   };
 };
 

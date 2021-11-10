@@ -23,7 +23,7 @@ function Details({
   useEffect(() => {
     fetchDetailCardGET(`/catalog/:shop/:item`, activeItem);
     setModification(initModification);
-  }, []);
+  }, [activeItem]);
 
   let classBanner = classNames({
     [details.banner]: true,
@@ -74,17 +74,12 @@ Details.propTypes = {
   fetchDetailCardGET: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({
-  activeStore,
-  activeItem,
-  detailCard,
-  detailActiveNav,
-}) => {
+const mapStateToProps = ({ main, card }) => {
   return {
-    activeStore,
-    activeItem,
-    detailCard,
-    detailActiveNav,
+    activeStore: main.activeStore,
+    activeItem: main.activeItem,
+    detailCard: card.detailCard,
+    detailActiveNav: card.detailActiveNav,
   };
 };
 

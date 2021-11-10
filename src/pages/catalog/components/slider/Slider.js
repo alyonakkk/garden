@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import Slide from "./Slide";
 import { connect } from "react-redux";
-import {
-  setActiveItem,
-  fetchShopItemGET,
-  fetchData,
-} from "../../../../store/actions";
+import { setActiveItem, fetchShopItemGET } from "../../../../store/actions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import { Link } from "react-router-dom";
@@ -14,18 +10,12 @@ import catalog from "../../catalog.module.css";
 import "../../slider.css";
 import PropTypes from "prop-types";
 
-function Slider({
-  shopItem,
-  setActiveItem,
-  activeStore,
-  fetchShopItemGET,
-  fetchData,
-}) {
+function Slider({ shopItem, setActiveItem, activeStore, fetchShopItemGET }) {
   SwiperCore.use([Navigation]);
 
   useEffect(() => {
     fetchShopItemGET(`/catalog/${activeStore}`, activeStore);
-  }, []);
+  }, [activeStore]);
 
   function renderSlide() {
     return shopItem.map((item) => {
@@ -74,17 +64,16 @@ Slider.propTypes = {
   fetchShopItemGET: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ shopItem, activeStore }) => {
+const mapStateToProps = ({ main, catalog }) => {
   return {
-    shopItem,
-    activeStore,
+    shopItem: catalog.shopItem,
+    activeStore: main.activeStore,
   };
 };
 
 const mapDispatchToProps = {
   setActiveItem,
   fetchShopItemGET,
-  fetchData,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Slider);

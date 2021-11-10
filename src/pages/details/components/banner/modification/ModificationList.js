@@ -87,11 +87,11 @@ ModificationList.propTypes = {
   setModification: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ order, detailCard, modification }) => {
+const mapStateToProps = ({ main, card }) => {
   return {
-    order,
-    detailCard,
-    modification,
+    order: main.order,
+    detailCard: card.detailCard,
+    modification: main.modification,
   };
 };
 

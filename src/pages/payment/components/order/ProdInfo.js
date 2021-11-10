@@ -57,9 +57,9 @@ ProdInfo.propTypes = {
   setOrder: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ order }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    order,
+    order: main.order,
   };
 };
 

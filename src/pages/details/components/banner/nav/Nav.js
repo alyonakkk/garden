@@ -51,9 +51,9 @@ Nav.propTypes = {
   setDetailActiveNav: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ detailActiveNav }) => {
+const mapStateToProps = ({ card }) => {
   return {
-    detailActiveNav,
+    detailActiveNav: card.detailActiveNav,
   };
 };
 

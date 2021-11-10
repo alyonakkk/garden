@@ -87,21 +87,14 @@ Footer.propTypes = {
   response: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({
-  detailCard,
-  order,
-  modification,
-  detailActiveNav,
-  activeModal,
-  response,
-}) => {
+const mapStateToProps = ({ card, main }) => {
   return {
-    detailCard,
-    order,
-    modification,
-    detailActiveNav,
-    activeModal,
-    response,
+    detailCard: card.detailCard,
+    order: main.order,
+    modification: main.modification,
+    detailActiveNav: card.detailActiveNav,
+    activeModal: main.activeModal,
+    response: main.response,
   };
 };
 

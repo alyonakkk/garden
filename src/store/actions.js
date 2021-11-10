@@ -44,14 +44,6 @@ function fetchShopDataGET(url) {
   };
 }
 
-function fetchData(url) {
-  return function (dispatch) {
-    client.get(url).then((resp) => {
-      console.log(resp.data);
-    });
-  };
-}
-
 function fetchShopItemGET(url, item) {
   return function (dispatch) {
     client
@@ -71,7 +63,6 @@ function fetchDetailCardGET(url, item) {
       .get(url)
       .then((response) => {
         dispatch(setDetailCard(response.data["item"][item]));
-        console.log(response.data);
       })
       .catch(() => {
         dispatch(setResponse("faild"));
@@ -122,5 +113,4 @@ export {
   fetchShopItemGET,
   fetchDetailCardGET,
   fetchDataPOST,
-  fetchData,
 };

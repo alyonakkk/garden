@@ -65,10 +65,10 @@ Banner.propTypes = {
   fetchDataPOST: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ order, orderTotal }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    order,
-    orderTotal,
+    order: main.order,
+    orderTotal: main.orderTotal,
   };
 };
 

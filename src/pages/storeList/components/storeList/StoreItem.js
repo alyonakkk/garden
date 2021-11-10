@@ -85,9 +85,9 @@ StoreItem.propTypes = {
   onClick: PropTypes.func,
 };
 
-const mapStateToProps = ({ close }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    close,
+    close: main.close,
   };
 };
 

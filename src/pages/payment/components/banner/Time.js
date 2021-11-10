@@ -37,9 +37,9 @@ Time.propTypes = {
   setOrderTotal: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ orderTotal }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    orderTotal,
+    orderTotal: main.orderTotal,
   };
 };
 

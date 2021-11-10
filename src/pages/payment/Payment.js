@@ -43,10 +43,10 @@ Payment.propTypes = {
   activeStore: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ activePayment, activeStore }) => {
+const mapStateToProps = ({ main }) => {
   return {
-    activePayment,
-    activeStore,
+    activePayment: main.activePayment,
+    activeStore: main.activeStore,
   };
 };
 
