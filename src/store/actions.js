@@ -44,12 +44,12 @@ function fetchShopDataGET(url) {
   };
 }
 
-function fetchShopItemGET(url, item) {
+function fetchShopItemGET(url) {
   return function (dispatch) {
     client
       .get(url)
       .then((response) => {
-        dispatch(setShopItem(response.data["items"][item]));
+        dispatch(setShopItem(response.data["items"]));
       })
       .catch(() => {
         dispatch(setResponse("faild"));
@@ -57,12 +57,12 @@ function fetchShopItemGET(url, item) {
   };
 }
 
-function fetchDetailCardGET(url, item) {
+function fetchDetailCardGET(url) {
   return function (dispatch) {
     client
       .get(url)
       .then((response) => {
-        dispatch(setDetailCard(response.data["item"][item]));
+        dispatch(setDetailCard(response.data["item"]));
       })
       .catch(() => {
         dispatch(setResponse("faild"));

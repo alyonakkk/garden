@@ -21,7 +21,7 @@ function Details({
   fetchDetailCardGET,
 }) {
   useEffect(() => {
-    fetchDetailCardGET(`/catalog/:shop/:item`, activeItem);
+    fetchDetailCardGET(`/catalog/${activeStore}/${activeItem}`);
     setModification(initModification);
   }, [activeItem]);
 
@@ -39,7 +39,7 @@ function Details({
 
   return (
     <div>
-      {detailCard !== undefined ? (
+      {Object.keys(detailCard).length !== 0 ? (
         <>
           <Header detailCard={detailCard} activeStore={activeStore} />
           <div className={details.img}></div>

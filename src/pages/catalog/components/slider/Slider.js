@@ -14,7 +14,7 @@ function Slider({ shopItem, setActiveItem, activeStore, fetchShopItemGET }) {
   SwiperCore.use([Navigation]);
 
   useEffect(() => {
-    fetchShopItemGET(`/catalog/${activeStore}`, activeStore);
+    fetchShopItemGET(`/catalog/${activeStore}`);
   }, [activeStore]);
 
   function renderSlide() {

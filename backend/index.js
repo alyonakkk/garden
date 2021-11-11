@@ -22,7 +22,7 @@ app.get("/api/catalog/", function (req, res) {
 app.get("/api/catalog/:shop", function (req, res) {
   const shop = findShopBySlug(req.params.shop);
   res.send({
-    items: shopsIems,
+    items: shopsIems[req.params.shop],
     shop,
   });
   res.send(shopsIems);
@@ -30,7 +30,7 @@ app.get("/api/catalog/:shop", function (req, res) {
 app.get("/api/catalog/:shop/:item", function (req, res) {
   const shop = findShopBySlug(req.params.shop);
   res.send({
-    item: detailData,
+    item: detailData[req.params.item],
     shop,
   });
   res.send(detailData);
