@@ -11,12 +11,7 @@ import details from "../../details.module.css";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import React from "react";
-import { Suspense } from "react";
 import Payment from "../../../payment/Payment";
-
-const ModalWindow = React.lazy(() =>
-  import("../../../../shared/modal/ModalWindow")
-);
 
 function Footer({
   detailCard,
@@ -25,8 +20,6 @@ function Footer({
   modification,
   detailActiveNav,
   setActivePayment,
-  activeModal,
-  response,
 }) {
   const prod = getProd(order, detailCard.slug, modification);
   const prodIndex = getProdIndex(order, detailCard.slug, modification);
@@ -73,9 +66,6 @@ function Footer({
       <PaymentItem title="К оплате" id="payment" onClick={handlePayment} />
       <TransitionGroup>
         <Payment />
-        {response.length !== 0 && (
-          <ModalWindow response={response} activeModal={activeModal} />
-        )}
       </TransitionGroup>
     </footer>
   );
@@ -92,14 +82,12 @@ Footer.propTypes = {
   response: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ card, main, modal }) => {
+const mapStateToProps = ({ card, main }) => {
   return {
     detailCard: card.detailCard,
     order: main.order,
     modification: main.modification,
     detailActiveNav: card.detailActiveNav,
-    activeModal: modal.activeModal,
-    response: modal.response,
   };
 };
 

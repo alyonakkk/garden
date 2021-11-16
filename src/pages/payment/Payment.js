@@ -5,9 +5,11 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import "./transition.css";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Suspense } from "react";
 
-function Payment({ activePayment, activeStore }) {
+const ModalWindow = React.lazy(() => import("../../shared/modal/ModalWindow"));
+
+function Payment({ activePayment, activeStore, response, activeModal }) {
   return (
     <>
       <div
@@ -35,6 +37,11 @@ function Payment({ activePayment, activeStore }) {
           </div>
         </div>
       </CSSTransition>
+      {response.length !== 0 && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <ModalWindow response={response} activeModal={activeModal} />
+        </Suspense>
+      )}
     </>
   );
 }
@@ -44,10 +51,12 @@ Payment.propTypes = {
   activeStore: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ payment, stores }) => {
+const mapStateToProps = ({ payment, stores, modal }) => {
   return {
     activePayment: payment.activePayment,
     activeStore: stores.activeStore,
+    response: modal.response,
+    activeModal: modal.activeModal,
   };
 };
 

@@ -58,7 +58,7 @@ const authInit = {
 };
 
 const userInit = {
-  name: "",
+  name: "Коти Старк",
   phone: 0,
 };
 

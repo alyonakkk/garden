@@ -22,7 +22,6 @@ function Autorization({
   }
 
   function handleName() {
-    setUserName("Коти Старк");
     fetchDataAutorizationPOST("/login");
     localStorage.setItem("name", userName);
     localStorage.setItem("phone", userPhone);
