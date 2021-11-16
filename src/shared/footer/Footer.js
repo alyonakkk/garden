@@ -3,14 +3,14 @@ import style from "./footer.module.css";
 import GardenItem from "./GardenItem";
 import StoresItem from "./StoresItem";
 import PaymentItem from "./PaymentItem";
-import Payment from "../../pages/payment/Payment";
 import { setActivePayment } from "../../store/actions";
 import { connect } from "react-redux";
 import { TransitionGroup } from "react-transition-group";
 import PropTypes from "prop-types";
-import ModalWindow from "../modal/ModalWindow";
+import React from "react";
+import Payment from "../../pages/payment/Payment";
 
-function Footer({ setActivePayment, response, activeModal }) {
+function Footer({ setActivePayment }) {
   let classFooterItem = classNames({
     [style.item]: true,
   });
@@ -24,7 +24,7 @@ function Footer({ setActivePayment, response, activeModal }) {
       <footer className={style.footer}>
         <ul className={style.list}>
           <GardenItem
-            path="/catalog"
+            path="/account"
             title="Garden"
             id="garden"
             className={classFooterItem}
@@ -55,8 +55,8 @@ Footer.propTypes = {
   setActivePayment: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ response, activeModal }) => {
-  return { response, activeModal };
+const mapStateToProps = ({}) => {
+  return {};
 };
 
 const mapDispatchToProps = {

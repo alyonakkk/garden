@@ -6,7 +6,7 @@ import {
   setOrder,
   fetchShopDataGET,
 } from "../../../../store/actions";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import storeList from "../../storeList.module.css";
 import blackBC from "../../img/black.png";
 import greenBC from "../../img/green.png";
@@ -55,10 +55,21 @@ function StoreList({ shopData, fetchShopDataGET }) {
       opacity: "16%",
     },
   ];
+  let [close, setClose] = useState(false);
 
   useEffect(() => {
     fetchShopDataGET("/catalog/");
+    getDateTime();
   }, []);
+
+  function getDateTime() {
+    const hour = new Date().getHours();
+    if (hour >= 23 || hour < 8) {
+      setClose(true);
+    } else {
+      setClose(false);
+    }
+  }
 
   function renderStoreItem() {
     return shopData.map(({ address, name, slug }, index) => {
@@ -68,6 +79,7 @@ function StoreList({ shopData, fetchShopDataGET }) {
           name={name}
           slug={slug}
           styleData={styleData[index]}
+          close={close}
           key={index}
         />
       );
@@ -87,10 +99,10 @@ StoreList.propTypes = {
   fetchShopDataGET: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ stores, main }) => {
+const mapStateToProps = ({ stores }) => {
   return {
     shopData: stores.shopData,
-    activeStore: main.activeStore,
+    activeStore: stores.activeStore,
   };
 };
 

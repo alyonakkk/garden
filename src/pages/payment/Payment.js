@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import "./transition.css";
 import PropTypes from "prop-types";
+import React from "react";
 
 function Payment({ activePayment, activeStore }) {
   return (
@@ -43,10 +44,10 @@ Payment.propTypes = {
   activeStore: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ main }) => {
+const mapStateToProps = ({ payment, stores }) => {
   return {
-    activePayment: main.activePayment,
-    activeStore: main.activeStore,
+    activePayment: payment.activePayment,
+    activeStore: stores.activeStore,
   };
 };
 

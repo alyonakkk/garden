@@ -40,9 +40,9 @@ PaymentItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ main }) => {
+const mapStateToProps = ({ main, stores }) => {
   return {
-    activeStore: main.activeStore,
+    activeStore: stores.activeStore,
     order: main.order,
   };
 };

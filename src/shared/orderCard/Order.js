@@ -1,15 +1,15 @@
 import { connect } from "react-redux";
-import payment from "../../payment.module.css";
+import style from "./orderCard.module.css";
 import OrderHeader from "./OrderHeader";
 import ProdInfo from "./ProdInfo";
 import ProdTitle from "./ProdTitle";
 import PropTypes from "prop-types";
 
-function Order({ order }) {
+function Order({ order, ...props }) {
   function renderOrderCard() {
     return order.map((item, index) => {
       return (
-        <li className={payment.card} key={index}>
+        <li className={style.card} key={index}>
           <ProdTitle title={item.name} />
           <ProdInfo item={item} />
         </li>
@@ -18,9 +18,9 @@ function Order({ order }) {
   }
 
   return (
-    <div className={payment.order}>
-      <OrderHeader title="Выбрано" />
-      <ul className={payment.card_list}>{renderOrderCard()}</ul>
+    <div className={style.order}>
+      <OrderHeader title="Выбрано" {...props} />
+      <ul className={style.card_list}>{renderOrderCard()}</ul>
     </div>
   );
 }

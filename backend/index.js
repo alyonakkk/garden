@@ -36,6 +36,12 @@ app.get("/api/catalog/:shop/:item", function (req, res) {
   res.send(detailData);
 });
 
+app.post("/api/login", (req, res) => {
+  res.send({
+    succes: true,
+  });
+});
+
 const start = () => {
   try {
     app.listen(PORT, () => {

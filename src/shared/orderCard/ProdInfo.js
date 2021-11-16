@@ -1,10 +1,10 @@
-import payment from "../../payment.module.css";
-import { clickAdd, clickRemove } from "../../../../helpers/ProdAddRemove";
-import { setOrder } from "../../../../store/actions";
+import style from "./orderCard.module.css";
+import { clickAdd, clickRemove } from "../../helpers/ProdAddRemove";
+import { setOrder } from "../../store/actions";
 import { connect } from "react-redux";
-import { getProd, getProdIndex } from "../../../../helpers/getProd";
-import ButtonCart from "../../../../shared/buttonCart/ButtonCart";
-import sumModidfication from "../../../../helpers/sumModification";
+import { getProd, getProdIndex } from "../../helpers/getProd";
+import ButtonCart from "../buttonCart/ButtonCart";
+import sumModidfication from "../../helpers/sumModification";
 import PropTypes from "prop-types";
 
 function ProdInfo({ item, order, setOrder }) {
@@ -29,7 +29,7 @@ function ProdInfo({ item, order, setOrder }) {
     return Object.values(modification).map((mod, index) => {
       return (
         mod.value === true && (
-          <li className={payment.modification_item} key={index}>
+          <li className={style.modification_item} key={index}>
             + {mod.name}
           </li>
         )
@@ -38,14 +38,14 @@ function ProdInfo({ item, order, setOrder }) {
   }
 
   return (
-    <div className={payment.wrapper_card}>
-      <ul className={payment.modification_list}>{renderModification()}</ul>
+    <div className={style.wrapper_card}>
+      <ul className={style.modification_list}>{renderModification()}</ul>
       <ButtonCart
         count={count}
         price={totalProdPrice}
         handleAdd={handleAdd}
         handleRemove={handleRemove}
-        color={payment.card_bc}
+        color={style.card_bc}
       />
     </div>
   );

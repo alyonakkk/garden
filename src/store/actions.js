@@ -3,7 +3,6 @@ import axios from "axios";
 import client from "../shared/API/client";
 import {
   SET_SHOP_DATA,
-  SET_CLOSE,
   SET_ACTIVE_STORE,
   SET_ACTIVE_ITEM,
   SET_SHOP_ITEM,
@@ -15,10 +14,13 @@ import {
   SET_ORDER_TOTAL,
   SET_RESPONSE,
   SET_ACTIVE_MODAL,
+  SET_AUTH,
+  SET_AUTORIZATION_ACTIVE,
+  SET_USER_NAME,
+  SET_USER_PHONE,
 } from "../store/constants";
 
 const setShopData = createAction(SET_SHOP_DATA);
-const setClose = createAction(SET_CLOSE);
 const setActiveStore = createAction(SET_ACTIVE_STORE);
 const setActiveItem = createAction(SET_ACTIVE_ITEM);
 const setShopItem = createAction(SET_SHOP_ITEM);
@@ -30,6 +32,10 @@ const setActivePayment = createAction(SET_ACTIVE_PAYMENT);
 const setOrderTotal = createAction(SET_ORDER_TOTAL);
 const setResponse = createAction(SET_RESPONSE);
 const setActiveModal = createAction(SET_ACTIVE_MODAL);
+const setAuth = createAction(SET_AUTH);
+const setAutorizationActive = createAction(SET_AUTORIZATION_ACTIVE);
+const setUserName = createAction(SET_USER_NAME);
+const setUserPhone = createAction(SET_USER_PHONE);
 
 function fetchShopDataGET(url) {
   return function (dispatch) {
@@ -95,9 +101,16 @@ function fetchDataPOST(url, orderTotal) {
   };
 }
 
+function fetchDataAutorizationPOST(url) {
+  return function (dispatch) {
+    client.post(url, {}).then((response) => {
+      dispatch(setAuth(true));
+    });
+  };
+}
+
 export {
   setShopData,
-  setClose,
   setActiveStore,
   setActiveItem,
   setShopItem,
@@ -109,8 +122,13 @@ export {
   setOrderTotal,
   setResponse,
   setActiveModal,
+  setAuth,
+  setAutorizationActive,
+  setUserName,
+  setUserPhone,
   fetchShopDataGET,
   fetchShopItemGET,
   fetchDetailCardGET,
   fetchDataPOST,
+  fetchDataAutorizationPOST,
 };

@@ -1,6 +1,6 @@
 import payment from "../../payment.module.css";
-import Order from "../order/Order";
-import OrderHeader from "../order/OrderHeader";
+import Order from "../../../../shared/orderCard/Order";
+import OrderHeader from "../../../../shared/orderCard/OrderHeader";
 import Place from "./Place";
 import Time from "./Time";
 import Comment from "./Comment";
@@ -32,6 +32,8 @@ function Banner({ order, orderTotal, setOrderTotal, fetchDataPOST }) {
       orderTotal.order.length !== 0
     ) {
       fetchDataPOST("https://jsonplaceholder.typicode.com/todos", orderTotal);
+    } else {
+      console.log("error");
     }
   }
 
@@ -44,10 +46,13 @@ function Banner({ order, orderTotal, setOrderTotal, fetchDataPOST }) {
           <form onSubmit={handleSubmit}>
             <div className={payment.container}>
               <Place />
-              <OrderHeader title="Приготовить заказ через" />
+              <OrderHeader
+                className={payment.title}
+                title="Приготовить заказ через"
+              />
               <Time />
-              <Order />
-              <OrderHeader title="Комментарий" />
+              <Order className={payment.title} />
+              <OrderHeader className={payment.title} title="Комментарий" />
               <Comment />
             </div>
             <Pay />

@@ -1,16 +1,24 @@
 import classNames from "classnames";
 import radio from "./radioCircle.module.css";
 import PropTypes from "prop-types";
+import useCheck from "../../../hooks/useCheck";
 
 function RadioCircle({ title, name, id, active, setActive }) {
-  let classCheckIcon = classNames({
-    [radio.check_icon]: true,
-    [radio.check_icon_visible]: active === id,
-  });
+  let radioCircle = useCheck(
+    radio.check_icon,
+    radio.check_icon_visible,
+    id,
+    active,
+    setActive
+  );
+  // let classCheckIcon = classNames({
+  //   [radio.check_icon]: true,
+  //   [radio.check_icon_visible]: active === id,
+  // });
 
-  function handleRadio() {
-    setActive((active = id));
-  }
+  // function handleRadio() {
+  //   setActive((active = id));
+  // }
 
   return (
     <label className={radio.text}>
@@ -19,10 +27,10 @@ function RadioCircle({ title, name, id, active, setActive }) {
         type="radio"
         name={name}
         id={id}
-        onChange={handleRadio}
+        onChange={radioCircle.handleRadio}
       />
       <div className={radio.new}>
-        <div className={classCheckIcon}></div>
+        <div className={radioCircle.classCheckIcon}></div>
       </div>
       {title}
     </label>

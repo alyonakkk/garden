@@ -23,10 +23,10 @@ Location.propTypes = {
   activeStore: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ stores, main }) => {
+const mapStateToProps = ({ stores }) => {
   return {
     shopData: stores.shopData,
-    activeStore: main.activeStore,
+    activeStore: stores.activeStore,
   };
 };
 

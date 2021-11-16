@@ -15,7 +15,7 @@ function Slider({ shopItem, setActiveItem, activeStore, fetchShopItemGET }) {
 
   useEffect(() => {
     fetchShopItemGET(`/catalog/${activeStore}`);
-  }, [activeStore]);
+  }, []);
 
   function renderSlide() {
     return shopItem.map((item) => {
@@ -64,10 +64,10 @@ Slider.propTypes = {
   fetchShopItemGET: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ main, catalog }) => {
+const mapStateToProps = ({ stores, catalog }) => {
   return {
     shopItem: catalog.shopItem,
-    activeStore: main.activeStore,
+    activeStore: stores.activeStore,
   };
 };
 

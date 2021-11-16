@@ -166,6 +166,13 @@
   background-color: #242424;
 }
 
+.title {
+  color: #959595;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
 .title_block {
   padding: 10px;
 

@@ -1,10 +1,10 @@
-import payment from "../../payment.module.css";
+import style from "./orderCard.module.css";
 import PropTypes from "prop-types";
 
 function ProdTitle({ title }) {
   return (
-    <div className={payment.title_block}>
-      <div className={payment.icon}>
+    <div className={style.title_block}>
+      <div className={style.icon}>
         <svg
           width="20"
           height="25"
@@ -18,7 +18,7 @@ function ProdTitle({ title }) {
           />
         </svg>
       </div>
-      <p className={payment.card_title}>{title}</p>
+      <p className={style.card_title}>{title}</p>
     </div>
   );
 }

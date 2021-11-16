@@ -1,19 +1,21 @@
-import classNames from "classnames";
 import radio from "./radio.module.css";
 import PropTypes from "prop-types";
+import useCheck from "../../../hooks/useCheck";
 
 function Radio({ title, name, id, active, setActive }) {
-  let classRadio = classNames({
-    [radio.radio_new]: true,
-    [radio.radio_active]: active === id,
-  });
-
-  function handleRadio() {
-    setActive((active = id));
-  }
+  let radioCheck = useCheck(
+    radio.radio_new,
+    radio.radio_active,
+    id,
+    active,
+    setActive
+  );
 
   return (
-    <label className={classRadio} onClick={handleRadio}>
+    <label
+      className={radioCheck.classCheckIcon}
+      onClick={radioCheck.handleRadio}
+    >
       {title}
       <input className={radio.radio} name={name} type="radio" />
     </label>

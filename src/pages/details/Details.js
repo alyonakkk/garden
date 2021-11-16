@@ -11,6 +11,7 @@ import classNames from "classnames";
 import Error from "../../shared/error/Error";
 import initModification from "../../helpers/getInitModification";
 import PropTypes from "prop-types";
+import React from "react";
 
 function Details({
   activeStore,
@@ -23,7 +24,7 @@ function Details({
   useEffect(() => {
     fetchDetailCardGET(`/catalog/${activeStore}/${activeItem}`);
     setModification(initModification);
-  }, [activeItem]);
+  }, []);
 
   let classBanner = classNames({
     [details.banner]: true,
@@ -68,16 +69,16 @@ function Details({
 Details.propTypes = {
   activeStore: PropTypes.string.isRequired,
   activeItem: PropTypes.string.isRequired,
-  detailCard: PropTypes.object,
+  detailCard: PropTypes.object.isRequired,
   setModification: PropTypes.func.isRequired,
   detailActiveNav: PropTypes.string.isRequired,
   fetchDetailCardGET: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ main, card }) => {
+const mapStateToProps = ({ card, stores, catalog }) => {
   return {
-    activeStore: main.activeStore,
-    activeItem: main.activeItem,
+    activeStore: stores.activeStore,
+    activeItem: catalog.activeItem,
     detailCard: card.detailCard,
     detailActiveNav: card.detailActiveNav,
   };

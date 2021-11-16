@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setClose, setActiveStore } from "../../../../store/actions";
+import { setActiveStore } from "../../../../store/actions";
 import storeList from "../../storeList.module.css";
 import PropTypes from "prop-types";
 
@@ -9,9 +8,8 @@ function StoreItem({
   address,
   name,
   slug,
-  styleData,
   close,
-  setClose,
+  styleData,
   setActiveStore,
   onClick,
 }) {
@@ -23,16 +21,6 @@ function StoreItem({
     backgroundImage: `url(${styleData.image})`,
     opacity: styleData.opacity,
   };
-
-  useEffect(() => {
-    const date = new Date();
-
-    if (date.getHours() >= 23 || date.getHours() < 8) {
-      setClose(true);
-    } else {
-      setClose(false);
-    }
-  }, []);
 
   function handleStoreLink() {
     setActiveStore(slug);
@@ -80,19 +68,15 @@ StoreItem.propTypes = {
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   close: PropTypes.bool.isRequired,
-  setClose: PropTypes.func.isRequired,
   setActiveStore: PropTypes.func.isRequired,
   onClick: PropTypes.func,
 };
 
-const mapStateToProps = ({ main }) => {
-  return {
-    close: main.close,
-  };
+const mapStateToProps = ({}) => {
+  return {};
 };
 
 const mapDispatchToProps = {
-  setClose,
   setActiveStore,
 };
 

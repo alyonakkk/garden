@@ -37,14 +37,6 @@ function Modal({ data, setActiveModal }) {
       ) : (
         <p className={modal.modal_text}>{data.modal.text}</p>
       )}
-      {/* <Link
-        to="/"
-        className={modal.button}
-        style={{ backgroundColor: `${data.style.backgroundColorButton}` }}
-        onClick={handleLink}
-      >
-        Ok
-      </Link> */}
       <a
         href="/"
         className={modal.button}

@@ -4,6 +4,10 @@ import {
   shopDataReducer,
   shopItemReducer,
   detailCardReducer,
+  paymentReducer,
+  modalReducer,
+  authReducer,
+  userReducer,
 } from "../store/reducer";
 import { combineReducers } from "redux";
 
@@ -12,6 +16,10 @@ const rootReducer = combineReducers({
   stores: shopDataReducer,
   catalog: shopItemReducer,
   card: detailCardReducer,
+  payment: paymentReducer,
+  modal: modalReducer,
+  autorization: authReducer,
+  user: userReducer,
 });
 
 const store = configureStore({

@@ -5,10 +5,8 @@
 }
 
 .store {
-  /* position: relative; */
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .store_list_wrapper {
@@ -19,12 +17,14 @@
 }
 
 .store_list {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .store_item {
+  margin-bottom: 12px;
+
   position: relative;
 
   display: flex;

@@ -14,6 +14,7 @@ import "./window.css";
 import getTimeReady from "../../helpers/getTimeReady";
 import filterOrder from "../../helpers/filterOrder";
 import PropTypes from "prop-types";
+import React from "react";
 
 function ModalWindow({
   response,
@@ -21,6 +22,7 @@ function ModalWindow({
   orderTotal,
   shopData,
   activeStore,
+  userName,
 }) {
   const name = filterOrder(shopData, activeStore)[0]["name"];
   const address = filterOrder(shopData, activeStore)[0]["address"];
@@ -33,7 +35,7 @@ function ModalWindow({
         list: {
           item1: {
             img: stark,
-            title: "Коти Старк",
+            title: userName,
             subtitle: "К вам обратятся",
           },
           item2: {
@@ -108,11 +110,12 @@ ModalWindow.propTypes = {
   activeStore: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ stores, main }) => {
+const mapStateToProps = ({ stores, main, user }) => {
   return {
     orderTotal: main.orderTotal,
     shopData: stores.shopData,
-    activeStore: main.activeStore,
+    activeStore: stores.activeStore,
+    userName: user.name,
   };
 };
 
