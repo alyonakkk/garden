@@ -78,8 +78,6 @@ Footer.propTypes = {
   modification: PropTypes.object.isRequired,
   detailActiveNav: PropTypes.string.isRequired,
   setActivePayment: PropTypes.func.isRequired,
-  activeModal: PropTypes.bool.isRequired,
-  response: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ card, main }) => {
